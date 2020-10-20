@@ -1,1 +1,0 @@
-cmd_Release/UlsAddon.node := c++ -bundle -undefined dynamic_lookup -Wl,-no_pie -Wl,-search_paths_first -mmacosx-version-min=10.7 -arch x86_64 -L./Release -stdlib=libc++  -o Release/UlsAddon.node Release/obj.target/UlsAddon/src/uls_addon.o Release/obj.target/UlsAddon/src/uls.o ../src/logsys_api/liblogsys_client.a

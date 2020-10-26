@@ -12,7 +12,7 @@ net.createServer(function(sock) {
         console.log('DATA ' + sock.remoteAddress + ': ' + data);
         sock.write('You said "' + data + '"');
     });
-    
+
     sock.on('close', function(data) {
         console.log('CLOSED: ' +
             sock.remoteAddress + ' ' + sock.remotePort);
@@ -23,4 +23,4 @@ net.createServer(function(sock) {
     });
 }).listen(PORT, HOST);
 
-console.log('Server listening on ' + HOST +':'+ PORT);
+console.log('Server listening on ' + HOST + ':' + PORT);

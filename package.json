@@ -13,6 +13,10 @@
     "@types/koa": "^2.11.4",
     "@types/koa-router": "^7.4.1",
     "@types/node": "^14.11.2",
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
+    "eslint": "^7.11.0",
+    "eslint-config-google": "^0.14.0",
     "mocha": "^8.2.0",
     "ts-jest": "^26.4.1",
     "typescript": "^4.0.3"
@@ -25,8 +29,10 @@
     "ioredis": "^4.17.3",
     "koa": "^2.13.0",
     "koa-limit": "^1.0.2",
+    "koa-rate-limits": "^1.0.1",
     "koa-router": "^9.4.0",
     "mergeamrfiles": "^1.0.0",
+    "protobufjs": "^6.10.1",
     "rate-limiter-flexible": "^2.1.10"
   }
 }

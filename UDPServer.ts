@@ -1,26 +1,23 @@
-import * as net from 'net';
+const dgram = require('dgram');
+const server = dgram.createSocket('udp4');
 
 const HOST = '127.0.0.1';
-const PORT = 8211;
+const PORT = 9527;
 
-net.createServer(function(sock) {
-    console.log('CONNECTED: ' +
-        sock.remoteAddress + ':' + sock.remotePort);
+server.on('error', (err) => {
+  console.log(`server error:\n${err.stack}`);
+  server.close();
+});
 
-    sock.on('data', function(data) {
-        console.log('data: ', data);
-        console.log('DATA ' + sock.remoteAddress + ': ' + data);
-        sock.write('You said "' + data + '"');
-    });
+server.on('message', (msg, rinfo) => {
+  console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
+});
 
-    sock.on('close', function(data) {
-        console.log('CLOSED: ' +
-            sock.remoteAddress + ' ' + sock.remotePort);
-    });
+server.on('listening', () => {
+  const address = server.address();
+  console.log(`server listening ${address.address}:${address.port}`);
+});
 
-    sock.on('error', (err) => {
-        console.error('socket error event: ', err);
-    });
-}).listen(PORT, HOST);
+server.bind(PORT);
 
 console.log('Server listening on ' + HOST + ':' + PORT);
